@@ -1,11 +1,11 @@
 {
-  "name": "password-manager",
+  "name": "pwdm",
   "version": "0.0.1",
   "description": "password-manager CLI",
   "private": true,
   "types": "build/types/types.d.ts",
   "bin": {
-    "password-manager": "bin/password-manager"
+    "pwdm": "bin/password-manager"
   },
   "scripts": {
     "format": "prettier --write **/*.{js,ts,tsx,json}",

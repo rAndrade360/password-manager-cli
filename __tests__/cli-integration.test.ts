@@ -29,3 +29,8 @@ test('generates file', async () => {
   // cleanup artifact
   filesystem.remove('models')
 })
+
+test('store password',  async() => {
+  const output = await cli('sp renan360 1234567 -d "Linkedin"');
+  expect(output).toContain('Stored login for renan360');
+})

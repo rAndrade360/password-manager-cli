@@ -2,14 +2,16 @@ import { GluegunToolbox, GluegunCommand } from 'gluegun';
 import Login from '../interfaces/ILogin';
 
 const CommandConfig: GluegunCommand = {
-    name: "store:password",
+    name: "store",
     alias: "sp",
     description:"Create a new login with informed domain, login and password",
     run: async (toolbox: GluegunToolbox) => {
         const { parameters: { first: username, second: password, options }, filesystem } = toolbox;
-        const { success } = toolbox.print;
+        const { success, error } = toolbox.print;
 
         const passwords: Array<Login> = filesystem.read("pwd.json", "json") || [];
+        const loginExists = passwords.filter(login => (login.username == username && String(options.d).toLocaleLowerCase() == login.domain))
+        if (loginExists.length>0) return error("Can not store. The login already exists");
         const newPass:Login = {
             id: Date.now(),
             username,

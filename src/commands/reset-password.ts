@@ -11,7 +11,7 @@ const CommandConfig: GluegunCommand = {
 
         const passwords: Array<Login> = filesystem.read("pwd.json", "json") || [];
         const filteredPasswords = passwords.map(login => {
-            if(login.username == username && domain == login.domain && login.password == options.currentPassword) {
+            if(login.username == username && domain == login.domain) {
                 return {
                     ...login,
                     password: options.newPassword        

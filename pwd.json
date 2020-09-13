@@ -1,17 +1,5 @@
 [
   {
-    "id": 1599971099145,
-    "username": "renan360",
-    "password": 1234567,
-    "domain": "linkedin"
-  },
-  {
-    "id": 1599971932019,
-    "username": "renan345",
-    "password": 1223567,
-    "domain": "linkedin"
-  },
-  {
     "id": 1599972033145,
     "username": "renan342",
     "password": "oegario",
@@ -23,5 +11,12 @@
     "password": "pirula345",
     "discription": "Meu perfil do github",
     "domain": "github"
+  },
+  {
+    "id": 1600013811009,
+    "username": "r.andrade@acad.ifma.edu.br",
+    "password": "Dadpool1",
+    "discription": "Meu login no Instagram",
+    "domain": "instagram"
   }
 ]

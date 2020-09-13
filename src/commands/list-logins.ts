@@ -3,7 +3,7 @@ import Login from '../interfaces/ILogin';
 
 const CommandConfig: GluegunCommand = {
     name: "list:passwords",
-    alias: "lp",
+    alias: "ls",
     description:"List logins with domain and username filters",
     run: async (toolbox: GluegunToolbox) => {
         const { parameters: {first: domain, options }, filesystem } = toolbox;

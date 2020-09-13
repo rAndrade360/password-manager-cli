@@ -1,13 +1,5 @@
 import { GluegunToolbox, GluegunCommand } from 'gluegun';
-
-
-interface Login{
-    id: number,
-    username: string,
-    password: string,
-    discription?: string,
-    domain?: string,
-}
+import Login from '../interfaces/ILogin';
 
 const CommandConfig: GluegunCommand = {
     name: "list:passwords",

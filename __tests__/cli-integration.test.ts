@@ -17,19 +17,6 @@ test('outputs help', async () => {
   expect(output).toContain('0.0.1')
 })
 
-test('generates file', async () => {
-  const output = await cli('generate foo')
-
-  expect(output).toContain('Generated file at models/foo-model.ts')
-  const foomodel = filesystem.read('models/foo-model.ts')
-
-  expect(foomodel).toContain(`module.exports = {`)
-  expect(foomodel).toContain(`name: 'foo'`)
-
-  // cleanup artifact
-  filesystem.remove('models')
-})
-
 test('store password',  async() => {
   const output = await cli('sp renan360 1234567 -d "Linkedin"');
   expect(output).toContain('Stored login for renan360');

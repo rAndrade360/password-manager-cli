@@ -7,6 +7,13 @@ module.exports = (toolbox: GluegunToolbox) => {
     toolbox.print.info('called foo extension')
   }
 
+  async function readStorage () {
+    const {filesystem} = toolbox;
+    return filesystem.read("pwd.json", "json") || [];
+  }
+
+  toolbox.readStorage = readStorage;
+
   // enable this if you want to read configuration in from
   // the current folder's package.json (in a "password-manager" property),
   // password-manager.config.json, etc.

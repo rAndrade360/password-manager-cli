@@ -6,8 +6,8 @@ const CommandConfig: GluegunCommand = {
     alias: "ls",
     description:"List logins with domain and username filters",
     run: async (toolbox: GluegunToolbox) => {
-        const { parameters: {first: domain, options }, filesystem } = toolbox;
-        const passwords: Array<Login> = filesystem.read("pwd.json", "json") || [];
+        const { parameters: {first: domain, options }, readStorage } = toolbox;
+        const passwords: Array<Login> = await readStorage();
         const {info, success, warning, table} = toolbox.print; 
 
         const filteredPasswords = options.all ? passwords : passwords.filter(password => (password.domain == domain.toLocaleLowerCase() || password.username == options.username));

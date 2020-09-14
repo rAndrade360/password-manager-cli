@@ -6,10 +6,10 @@ const CommandConfig: GluegunCommand = {
     alias: "sp",
     description:"Create a new login with informed domain, login and password",
     run: async (toolbox: GluegunToolbox) => {
-        const { parameters: { first: username, second: password, options }, filesystem } = toolbox;
+        const { parameters: { first: username, second: password, options }, filesystem, readStorage } = toolbox;
         const { success, error } = toolbox.print;
 
-        const passwords: Array<Login> = filesystem.read("pwd.json", "json") || [];
+        const passwords: Array<Login> = await readStorage();
         const loginExists = passwords.filter(login => (login.username == username && String(options.d).toLocaleLowerCase() == login.domain))
         if (loginExists.length>0) return error("Can not store. The login already exists");
         const newPass:Login = {

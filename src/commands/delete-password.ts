@@ -10,11 +10,12 @@ const CommandsConfig: GluegunCommand = {
             first: domain,
             second: username,
         },
-          filesystem
+          filesystem,
+          readStorage
         } = toolbox;
         const { success } = toolbox.print;
 
-     const passwords: Array<Login> = filesystem.read("pwd.json", "json") || [];
+     const passwords: Array<Login> = await readStorage();
       const filteredPasswords = passwords.filter(login => (!(login.username == username && domain == login.domain)))
       filesystem.write("pwd.json", filteredPasswords);
 

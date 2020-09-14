@@ -18,5 +18,11 @@
     "password": "Dadpool1",
     "discription": "Meu login no Instagram",
     "domain": "instagram"
+  },
+  {
+    "id": 1600027535003,
+    "username": "renan360",
+    "password": 1234567,
+    "domain": "linkedin"
   }
 ]

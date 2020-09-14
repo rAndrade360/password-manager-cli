@@ -6,10 +6,10 @@ const CommandConfig: GluegunCommand = {
     alias: "rs",
     description:"Update a login with informed domain, login and password",
     run: async (toolbox: GluegunToolbox) => {
-        const { parameters: { first: domain, second: username, options }, filesystem } = toolbox;
+        const { parameters: { first: domain, second: username, options }, filesystem, readStorage } = toolbox;
         const { success } = toolbox.print;
 
-        const passwords: Array<Login> = filesystem.read("pwd.json", "json") || [];
+        const passwords: Array<Login> = await readStorage();
         const filteredPasswords = passwords.map(login => {
             if(login.username == username && domain == login.domain) {
                 return {
